@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="10;url=https://ewyrn.framer.ai/es/ametller">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redireccionando...</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .message {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    <h1>Redireccionando a la app...</h1>
+    <p>Si no ocurre automáticamente, <a href="https://ewyrn.framer.ai/es/ametller" style="color: #fff; text-decoration: underline;">haz clic aquí</a>.</p>
+  </div>
+
+  <script>
+    function detectOS() {
+      const ua = navigator.userAgent;
+      if (/android/i.test(ua)) return "android";
+      if (/iPad|iPhone|iPod/i.test(ua)) return "ios";
+      return "unknown";
+    }
+
+    const os = detectOS();
+    const links = {
+      ios: 'https://apps.apple.com/es/app/ametller-origen/id887778731',
+      android: 'https://play.google.com/store/apps/details?id=com.cirici.casaametller'
+    };
+
+    // Redirige según el sistema operativo
+    window.location.replace(links[os] || links.android);
+
+    // Fallback: redirige al sitio web si no se abre la store en 3 segundos
+    setTimeout(() => {
+      window.location.href = 'https://ewyrn.framer.ai/es/ametller';
+    }, 3000);
+  </script>
+</body>
+</html>
